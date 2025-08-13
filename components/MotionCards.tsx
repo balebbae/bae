@@ -239,14 +239,14 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
         <FloatingElement
           depth={0.5}
           className={`${
-            isSmallView ? "top-[8%] left-[62%]" : "top-[11%] left-[57%]"
+            isSmallView ? "top-[8%] left-[58%]" : "top-[11%] left-[57%]"
           } z-10`}
         >
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-[clamp(100px,20vw,270px)] aspect-[8/5] hover:scale-105 duration-200 cursor-pointer transition-transform "
+            className="w-[clamp(120px,20vw,270px)] aspect-[8/5] hover:scale-105 duration-200 cursor-pointer transition-transform "
             onClick={() => handleImageClick(images["about"])}
           >
             <img
