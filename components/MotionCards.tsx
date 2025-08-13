@@ -219,7 +219,7 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
         <FloatingElement
           depth={0.5}
           className={`${
-            isSmallView ? "top-[9%] left-[10%]" : "top-[14%] left-[15%]"
+            isSmallView ? "top-[8%] left-[10%]" : "top-[14%] left-[15%]"
           } z-10`}
         >
           <motion.div
@@ -239,7 +239,7 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
         <FloatingElement
           depth={0.5}
           className={`${
-            isSmallView ? "top-[9%] left-[60%]" : "top-[11%] left-[57%]"
+            isSmallView ? "top-[8%] left-[62%]" : "top-[11%] left-[57%]"
           } z-10`}
         >
           <motion.div
@@ -259,7 +259,7 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
         <FloatingElement
           depth={2}
           className={`${
-            isSmallView ? "top-[23%] left-[10%]" : "top-[76%] left-[68%]"
+            isSmallView ? "top-[25%] left-[10%]" : "top-[76%] left-[68%]"
           } z-10`}
         >
           <motion.div
@@ -279,7 +279,7 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
         <FloatingElement
           depth={2}
           className={`${
-            isSmallView ? "top-[19%] left-[68%]" : "top-[63%] left-[35%]"
+            isSmallView ? "top-[22%] left-[68%]" : "top-[63%] left-[35%]"
           } z-10`}
         >
           <motion.div
