@@ -58,6 +58,21 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
     setTimeout(() => setSelectedImage(null), 300);
   };
 
+  // Close on Escape key
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        handleClose();
+      }
+    };
+    if (isExpanded) {
+      window.addEventListener("keydown", onKeyDown);
+    }
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isExpanded]);
+
   const renderDetailsBody = () => {
     if (!selectedImage) return null;
     if (selectedImage === images["resume"]) {
@@ -153,6 +168,7 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
                         src={selectedImage}
                         alt="Expanded view"
                         className="w-full h-auto object-contain"
+                        onClick={handleClose}
                       />
                     </motion.div>
                   </div>
@@ -210,7 +226,7 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-[clamp(150px,20vw,360px)] aspect-[5/3] hover:scale-105 duration-200 cursor-pointer transition-transform"
+            className="w-[clamp(150px,20vw,310px)] aspect-[5/3] hover:scale-105 duration-200 cursor-pointer transition-transform"
             onClick={() => handleImageClick(images["resume"])}
           >
             <img
@@ -230,7 +246,7 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-[clamp(100px,26vw,320px)] aspect-[8/5] hover:scale-105 duration-200 cursor-pointer transition-transform "
+            className="w-[clamp(100px,20vw,270px)] aspect-[8/5] hover:scale-105 duration-200 cursor-pointer transition-transform "
             onClick={() => handleImageClick(images["about"])}
           >
             <img
@@ -250,7 +266,7 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-[clamp(230px,26vw,320px)] aspect-[8/5] hover:scale-105 duration-200 cursor-pointer transition-transform "
+            className="w-[clamp(180px,23vw,280px)] aspect-[5/3] hover:scale-105 duration-200 cursor-pointer transition-transform "
             onClick={() => handleImageClick(images["experience"])}
           >
             <img
@@ -263,7 +279,7 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
         <FloatingElement
           depth={2}
           className={`${
-            isSmallView ? "top-[23%] left-[68%]" : "top-[63%] left-[35%]"
+            isSmallView ? "top-[19%] left-[68%]" : "top-[63%] left-[35%]"
           } z-10`}
         >
           <motion.div
