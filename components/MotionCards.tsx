@@ -259,7 +259,7 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
         <FloatingElement
           depth={2}
           className={`${
-            isSmallView ? "top-[25%] left-[10%]" : "top-[76%] left-[68%]"
+            isSmallView ? "top-[24%] left-[11%]" : "top-[76%] left-[68%]"
           } z-10`}
         >
           <motion.div
