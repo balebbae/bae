@@ -19,6 +19,43 @@ const images = {
   garden: "/z11_11zon.webp",
 };
 
+const captions: Record<string, { title: string; description: string }> = {
+  "/z5_11zon.webp": {
+    title: "Shot by Caleb Bae",
+    description: "Evening shoreline with low haze and soft golden light.",
+  },
+  "/z6_11zon.webp": {
+    title: "Shot by Caleb Bae",
+    description: "Bird in motion captured with a shallow depth of field.",
+  },
+  "/z8_11zon.webp": {
+    title: "Shot by Caleb Bae",
+    description: "Soft floral study with subtle bokeh and muted palette.",
+  },
+  "/z9_11zon.webp": {
+    title: "Shot by Caleb Bae",
+    description: "Street detail with texture and contrast in afternoon light.",
+  },
+  "/z10_11zon.webp": {
+    title: "Shot by Caleb Bae",
+    description: "Warm sunset tones fading into cool evening sky.",
+  },
+  "/z11_11zon.webp": {
+    title: "Shot by Caleb Bae",
+    description: "Garden composition with layered greens and soft edges.",
+  },
+};
+
+const getCaption = (src: string | null) => {
+  if (!src) return null;
+  return (
+    captions[src] ?? {
+      title: "Shot by Caleb Bae",
+      // description: "Captured as part of the personal gallery series.",
+    }
+  );
+};
+
 interface MotionCardsProps {
   onExpandChange?: (isExpanded: boolean) => void;
 }
@@ -133,7 +170,7 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
                     setShowWhitePanel((v) => !v);
                   }}
                 >
-                  {showWhitePanel ? `View Image` : "View Details"}
+                  {showWhitePanel ? `View Cover` : "View Details"}
                 </button>
                 {showWhitePanel ? (
                   <motion.div
@@ -164,12 +201,23 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
                       className="max-w-[95vw]"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <img
-                        src={selectedImage}
-                        alt="Expanded view"
-                        className="w-full h-auto object-contain"
-                        onClick={handleClose}
-                      />
+                      <div className="flex flex-col items-center">
+                        <img
+                          src={selectedImage}
+                          alt="Expanded view"
+                          className="w-full h-auto object-contain"
+                          onClick={handleClose}
+                        />
+                        {(() => {
+                          const c = getCaption(selectedImage);
+                          return c ? (
+                            <div className="mt-3 max-w-[90vw] text-center text-xs md:text-sm text-white/95 bg-black/50 px-3 py-2 rounded">
+                              <div className="font-medium">{c.title}</div>
+                              <div className="opacity-90">{c.description}</div>
+                            </div>
+                          ) : null;
+                        })()}
+                      </div>
                     </motion.div>
                   </div>
                 )}
@@ -189,12 +237,23 @@ const MotionCards = ({ onExpandChange }: MotionCardsProps) => {
                     className="w-[28vw] max-w-none md:w-[30vw]"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <img
-                      src={selectedImage}
-                      alt="Expanded view"
-                      className="w-full h-auto object-cover cursor-pointer"
-                      onClick={handleClose}
-                    />
+                    <div className="flex flex-col items-center">
+                      <img
+                        src={selectedImage}
+                        alt="Expanded view"
+                        className="w-full h-auto object-cover cursor-pointer"
+                        onClick={handleClose}
+                      />
+                      {(() => {
+                        const c = getCaption(selectedImage);
+                        return c ? (
+                          <div className="mt-4 text-center text-xs text-white/95">
+                            <div className="font-medium">{c.title}</div>
+                            <div className="opacity-90">{c.description}</div>
+                          </div>
+                        ) : null;
+                      })()}
+                    </div>
                   </motion.div>
                 </div>
 
