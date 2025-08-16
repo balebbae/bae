@@ -188,6 +188,19 @@ const Projects: React.FC = () => {
             </motion.section>
           ))}
         </div>
+
+        <div className="mt-12 text-sm text-neutral-700 flex items-center justify-center gap-2">
+          <span>...and many more on</span>
+          <a
+            href="https://github.com/balebbae"
+            target="_blank"
+            rel="noreferrer"
+            title="GitHub"
+            className="inline-flex items-center"
+          >
+            <img src={icon.github} alt="GitHub" className="w-4 h-4" />
+          </a>
+        </div>
       </div>
     </div>
   );
