@@ -36,11 +36,11 @@ const Home = () => {
         <div className="z-50">
           <GooeyText
             texts={[
-              "Software",
-              "Engineer",
-              "Creative",
-              "Photography",
-              "Videography",
+              "You",
+              "Should",
+              "Hire",
+              "This",
+              "Guy",
             ]}
             morphTime={2}
             cooldownTime={0.25}

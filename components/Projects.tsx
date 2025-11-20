@@ -9,6 +9,7 @@ type Project = {
   image: string; // path in /public
   github?: string;
   devpost?: string; // for hackathons only
+  live?: string; // live demo link
   builtWith: string[];
 };
 
@@ -29,6 +30,24 @@ const projects: Project[] = [
       "Redis",
       "Swagger",
       "Zap",
+    ],
+  },
+  {
+    name: "Interpret",
+    typeLabel: "Personal",
+    description: "Bilingual Audio Separator - Youtube link → two clean language tracks",
+    image: "/interpret.webp",
+    github: "https://github.com/balebbae/Interpret",
+    live: "https://interpret-lang.vercel.app/",
+    builtWith: [
+      "Next.js 16",
+      "React 19",
+      "Python",
+      "Modal GPU",
+      "PyTorch",
+      "pyannote.audio",
+      "Tailwind CSS",
+      "TypeScript",
     ],
   },
   {
@@ -90,6 +109,7 @@ const projects: Project[] = [
 const icon = {
   github: "/icons/brand-github.svg",
   devpost: "/icons/circle-dashed-letter-d.svg",
+  live: "/icons/external-link.svg",
 };
 
 const Projects: React.FC = () => {
@@ -167,6 +187,20 @@ const Projects: React.FC = () => {
                       <img
                         src={icon.devpost}
                         alt="Devpost"
+                        className="w-5 h-5"
+                      />
+                    </a>
+                  )}
+                  {p.live && (
+                    <a
+                      href={p.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      title="Live Demo"
+                    >
+                      <img
+                        src={icon.live}
+                        alt="Live Demo"
                         className="w-5 h-5"
                       />
                     </a>
