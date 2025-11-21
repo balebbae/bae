@@ -66,7 +66,7 @@ const Experience: React.FC = () => {
                 Built post-call automation with LLM-powered email generation and BigSpin AI feedback loops.
               </li>
               <li className="text-base leading-7">
-                Engineered Claude Code subagents that refactored 129 files and created/maintained Homebase's Claude Code Plugin Marketplace.
+                Engineered Claude Code subagents that refactored 129 files and created/maintained Homebase&apos;s Claude Code Plugin Marketplace.
               </li>
             </ul>
 
